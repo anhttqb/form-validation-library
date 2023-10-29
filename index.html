@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form handling 2</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="main">
+
+        <form action="" method="POST" class="form" id="register-form">
+            <h3 class="heading">Thành viên đăng ký</h3>
+            <p class="desc">Cùng nhau học lập trình miễn phí tại F8 ❤️</p>
+
+            <div class="spacer"></div>
+
+            <div class="form-group">
+                <label for="fullname" class="form-label">Tên đầy đủ</label>
+                <input id="fullname" name="fullname" rules="required" type="text" placeholder="VD: Anh Trần"
+                    class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input id="email" name="email" rules="required|email" type="text" placeholder="VD: email@domain.com"
+                    class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">Mật khẩu</label>
+                <input id="password" name="password" rules="required|min:6" type="password" placeholder="Nhập mật khẩu"
+                    class="form-control">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
+                <input id="password_confirmation" name="password_confirmation" rules="required|confirm" placeholder="Nhập lại mật khẩu" type="password" class="form-control">
+                <span class="form-message"></span>
+              </div>
+            <div class="form-group">
+                <label class="form-label">Giới tính</label>
+                <div class="form-gender">
+                    <div class="form-gender__field">
+                        <input name="gender" type="radio" rules="required" value="male" class="form-control">
+                        <p class="form-gender__option">Nam</p>
+                    </div>
+                    <div class="form-gender__field">
+                        <input name="gender" type="radio" rules="required" value="female" class="form-control">
+                        <p class="form-gender__option">Nữ</p>
+                    </div>
+                    <div class="form-gender__field">
+                        <input name="gender" type="radio" rules="required" value="others" class="form-control">
+                        <p class="form-gender__option">Khác</p>
+                    </div>
+                </div>
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Sở thích</label>
+                <div class="form-hobby">
+                    <div class="form-hobby__field">
+                        <input name="hobby" rules="required" type="checkbox" value="sport" class="form-control">
+                        <p class="form-hobby__option">Thể thao</p>
+                    </div>
+                    <div class="form-hobby__field">
+                        <input name="hobby" rules="required" type="checkbox" value="books" class="form-control">
+                        <p class="form-hobby__option">Đọc sách</p>
+                    </div>
+                    <div class="form-hobby__field">
+                        <input name="hobby" rules="required" type="checkbox" value="travel" class="form-control">
+                        <p class="form-hobby__option">Du lịch</p>
+                    </div>
+                </div>
+                <span class="form-message"></span>
+            <button class="form-submit">Đăng ký</button>
+        </form>
+    </div>
+    <script src="./validator.js"></script>
+
+    <script>
+
+        const registerForm = new Validator('#register-form');
+        registerForm.onSubmit = function (formData) {
+            console.log(formData);
+        }
+    </script>
+</body>
+
+</html>
